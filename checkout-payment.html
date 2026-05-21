@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Checkout — Payment | SOLAIRE</title>
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<div class="topbar">Free worldwide shipping over $150</div>
+
+<header class="header">
+  <div class="header-inner">
+    <button class="icon-btn" aria-label="Menu"><svg class="icon" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="brand" href="index.html">SOLAIRE</a>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Search"><svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <a class="icon-btn" href="cart.html"><svg class="icon" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12a2 2 0 0 1-2 1.8H8.2A2 2 0 0 1 6.2 20L5 8z"/><path d="M9 8V6a3 3 0 1 1 6 0v2"/></svg><span class="badge">3</span></a>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="steps">
+    <span><a href="cart.html">Bag</a></span><span>›</span>
+    <span><a href="checkout-shipping.html">Shipping</a></span><span>›</span>
+    <span class="active">Payment</span>
+  </div>
+</div>
+
+<section class="container">
+  <div class="checkout">
+    <div>
+      <!-- Shipping summary -->
+      <div style="border:1px solid var(--line); padding:22px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+          <h3 style="font-size:11px;letter-spacing:.24em; text-transform:uppercase; margin:0;">Shipping to</h3>
+          <a href="checkout-shipping.html" style="font-size:11px;letter-spacing:.22em; text-transform:uppercase; border-bottom:1px solid var(--ink); padding-bottom:2px;">Edit</a>
+        </div>
+        <p style="margin:0; font-size:13px; line-height:1.7;">
+          Olivia Bennett<br/>
+          1234 Ocean Avenue, Apt 5B<br/>
+          Santa Monica, CA 90401<br/>
+          United States<br/>
+          +1 (310) 555-0198
+        </p>
+      </div>
+
+      <!-- Shipping method -->
+      <div style="border:1px solid var(--line); padding:22px; margin-top:14px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+          <h3 style="font-size:11px;letter-spacing:.24em; text-transform:uppercase; margin:0;">Shipping method</h3>
+          <a href="checkout-shipping.html" style="font-size:11px;letter-spacing:.22em; text-transform:uppercase; border-bottom:1px solid var(--ink); padding-bottom:2px;">Edit</a>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:13px;">
+          <span>🚚 Standard Shipping (7–10 days)</span>
+          <span style="color:var(--green); letter-spacing:.18em; text-transform:uppercase;">Free</span>
+        </div>
+      </div>
+
+      <!-- Payment method -->
+      <h3 style="font-size:11px;letter-spacing:.24em; text-transform:uppercase; margin:36px 0 6px;">Payment method</h3>
+      <p class="muted" style="font-size:12px; margin:0 0 14px;">All transactions are secure and encrypted.</p>
+
+      <div data-radio-group>
+        <div class="radio-block active" data-method="card">
+          <div class="left"><span class="radio-dot"></span> Credit / Debit Card</div>
+          <div class="pay-icons">
+            <span class="pi" style="background:#1A1F71;color:#fff;">VISA</span>
+            <span class="pi" style="background:#EB001B;color:#fff;">MC</span>
+            <span class="pi" style="background:#006FCF;color:#fff;">AMEX</span>
+            <span class="pi" style="background:#FF6000;color:#fff;">DISC</span>
+          </div>
+        </div>
+        <div class="card-form" style="border:1px solid var(--line-2); border-top:none; padding:18px; background:var(--ivory); margin-top:-10px; margin-bottom:10px;">
+          <span class="label">Card number</span>
+          <input class="input" placeholder="1234 1234 1234 1234"/>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px;">
+            <div><span class="label">Expiry date</span><input class="input" placeholder="MM / YY"/></div>
+            <div><span class="label">CVC</span><input class="input" placeholder="123"/></div>
+          </div>
+          <div style="margin-top:10px;"><span class="label">Cardholder name</span><input class="input" placeholder="Name on card"/></div>
+        </div>
+
+        <div class="radio-block" data-method="paypal">
+          <div class="left"><span class="radio-dot"></span> <span style="font-weight:600; color:#003087;">Pay</span><span style="color:#009cde; font-weight:600;">Pal</span></div>
+        </div>
+        <div class="radio-block" data-method="apple-pay">
+          <div class="left"><span class="radio-dot"></span>  Pay (Apple Pay)</div>
+        </div>
+        <div class="radio-block" data-method="google-pay">
+          <div class="left"><span class="radio-dot"></span> G Pay (Google Pay)</div>
+        </div>
+      </div>
+
+      <!-- Billing -->
+      <h3 style="font-size:11px;letter-spacing:.24em; text-transform:uppercase; margin:36px 0 14px;">Billing address</h3>
+      <label style="display:flex; gap:10px; align-items:center; font-size:13px;">
+        <input type="checkbox" checked> Same as shipping address
+      </label>
+
+      <!-- Promo -->
+      <h3 style="font-size:11px;letter-spacing:.24em; text-transform:uppercase; margin:36px 0 14px;">Promo code</h3>
+      <div style="display:flex; gap:10px;">
+        <input class="input" placeholder="Enter code"/>
+        <button class="btn btn-light" style="white-space:nowrap;">Apply</button>
+      </div>
+
+      <div style="display:flex; gap:14px; margin-top: 22px; align-items:center;">
+        <span class="chip">🔒 Stripe Verified Partner</span>
+        <span class="chip">256-bit SSL Encryption</span>
+        <span class="chip">↺ 30-day Returns</span>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:32px;">
+        <a href="checkout-shipping.html" style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;">‹ Back to shipping</a>
+      </div>
+    </div>
+
+    <!-- Order summary -->
+    <aside>
+      <div class="summary-card" style="position:sticky; top:88px;">
+        <h3>Order summary</h3>
+        <div style="display:flex; gap:14px; padding:12px 0; border-bottom:1px solid var(--line);">
+          <div class="pic" style="width:64px; height:80px; overflow:hidden; background:var(--sand);">
+            <img src="assets/img/luna-dress.png" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div style="flex:1;">
+            <p style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; margin:0 0 4px;">Luna Cutout Dress</p>
+            <p class="muted" style="font-size:12px; margin:0 0 6px;">Sand / M · Qty 1</p>
+            <p style="font-size:13px; margin:0;"><b>$190.00</b></p>
+          </div>
+        </div>
+        <div style="display:flex; gap:14px; padding:12px 0; border-bottom:1px solid var(--line);">
+          <div class="pic" style="width:64px; height:80px; overflow:hidden; background:var(--sand);">
+            <img src="assets/img/linen-pants.png" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div style="flex:1;">
+            <p style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; margin:0 0 4px;">Linen Wide Leg Pant</p>
+            <p class="muted" style="font-size:12px; margin:0 0 6px;">Oat / M · Qty 1</p>
+            <p style="font-size:13px; margin:0;"><b>$128.00</b></p>
+          </div>
+        </div>
+        <div style="display:flex; gap:14px; padding:12px 0; border-bottom:1px solid var(--line);">
+          <div class="pic" style="width:64px; height:80px; overflow:hidden; background:var(--sand);">
+            <img src="assets/img/gold-hoops.png" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div style="flex:1;">
+            <p style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; margin:0 0 4px;">Gold Wave Hoops</p>
+            <p class="muted" style="font-size:12px; margin:0 0 6px;">Gold / OS · Qty 1</p>
+            <p style="font-size:13px; margin:0;"><b>$48.00</b></p>
+          </div>
+        </div>
+
+        <div class="summary-row" style="margin-top:14px;"><span>Subtotal (3 items)</span><span>$366.00</span></div>
+        <div class="summary-row"><span>Shipping</span><span style="color:var(--green)">FREE</span></div>
+        <div class="summary-row"><span>Sales tax</span><span>$25.62</span></div>
+        <div class="summary-row" style="color:var(--green)"><span>Discount (WELCOME10)</span><span>− $20.00</span></div>
+        <div class="summary-row total"><span>Estimated total</span><span>$371.62 USD</span></div>
+
+        <button class="btn btn-block" style="margin-top: 22px;">Place order</button>
+
+        <p class="muted" style="font-size:11px; line-height:1.7; margin-top:14px;">
+          By placing your order, you agree to our <a style="border-bottom:1px solid var(--muted)">Terms of Service</a> and <a style="border-bottom:1px solid var(--muted)">Privacy Policy</a>.
+        </p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<footer class="footer" style="padding:32px 0;">
+  <div class="container-wide footer-bottom" style="border:none; margin:0; padding:0;">
+    <span>© 2025 Solaire</span>
+    <div class="links"><span>Terms</span><span>Privacy</span><span>Cookies</span><span>Help</span></div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

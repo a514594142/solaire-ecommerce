@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Checkout — Shipping | SOLAIRE</title>
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<div class="topbar">Free worldwide shipping over $150</div>
+
+<header class="header">
+  <div class="header-inner">
+    <button class="icon-btn" aria-label="Menu"><svg class="icon" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="brand" href="index.html">SOLAIRE</a>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Search"><svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <a class="icon-btn" href="cart.html"><svg class="icon" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12a2 2 0 0 1-2 1.8H8.2A2 2 0 0 1 6.2 20L5 8z"/><path d="M9 8V6a3 3 0 1 1 6 0v2"/></svg><span class="badge">3</span></a>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="steps">
+    <span><a href="cart.html">Bag</a></span>
+    <span>───</span>
+    <span class="active">Shipping</span>
+    <span>───</span>
+    <span>Payment</span>
+  </div>
+</div>
+
+<section class="container">
+  <div class="checkout">
+    <div>
+      <h1 class="serif" style="font-size:32px; letter-spacing:.18em; text-transform:uppercase; margin:0 0 28px;">Checkout</h1>
+
+      <div class="gl-tabs">
+        <button class="active">Guest checkout</button>
+        <button>Login</button>
+      </div>
+
+      <span class="label">Email</span>
+      <input class="input" type="email" placeholder="Enter your email" />
+
+      <h3 style="font-size:11px;letter-spacing:.24em; text-transform:uppercase; margin:36px 0 14px;">Shipping address</h3>
+      <select class="select" style="margin-bottom:10px;"><option>Use a saved address</option></select>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+        <input class="input" placeholder="First name"/>
+        <input class="input" placeholder="Last name"/>
+      </div>
+      <input class="input" style="margin-top:10px;" placeholder="Address"/>
+      <input class="input" style="margin-top:10px;" placeholder="Apartment, suite, etc. (optional)"/>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px;">
+        <input class="input" placeholder="City"/>
+        <select class="select"><option>Country / Region</option><option>United States</option><option>United Kingdom</option><option>Japan</option></select>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px;">
+        <select class="select"><option>State / Province</option><option>California</option></select>
+        <input class="input" placeholder="ZIP / Postal code"/>
+      </div>
+      <label style="display:flex; gap:10px; align-items:center; margin-top:14px; font-size:12px;"><input type="checkbox"> Save this information for next time</label>
+
+      <h3 style="font-size:11px;letter-spacing:.24em; text-transform:uppercase; margin:36px 0 14px;">Shipping method</h3>
+      <div data-radio-group>
+        <div class="radio-block active" data-shipping="0">
+          <div class="left"><span class="radio-dot"></span> Standard Shipping (7–10 days)</div>
+          <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;">Free</span>
+        </div>
+        <div class="radio-block" data-shipping="15">
+          <div class="left"><span class="radio-dot"></span> Express Shipping (3–5 days)</div>
+          <span>$15.00</span>
+        </div>
+        <div class="radio-block" data-shipping="25">
+          <div class="left"><span class="radio-dot"></span> DHL Express (1–2 days)</div>
+          <span>$25.00</span>
+        </div>
+      </div>
+
+      <h3 style="font-size:11px;letter-spacing:.24em; text-transform:uppercase; margin:36px 0 14px;">Estimate shipping &amp; tax</h3>
+      <span class="label">Country / Region</span>
+      <select class="select"><option>United States</option></select>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px;">
+        <div><span class="label">State</span><select class="select"><option>California</option></select></div>
+        <div><span class="label">ZIP code</span><input class="input" value="90210"/></div>
+      </div>
+      <button class="btn btn-block" style="margin-top:14px; background:var(--cocoa)">Calculate estimate</button>
+
+      <h3 style="font-size:11px;letter-spacing:.24em; text-transform:uppercase; margin:36px 0 14px;">Promo code</h3>
+      <div style="display:flex; gap:10px;">
+        <input class="input" placeholder="Enter promo code"/>
+        <button class="btn btn-light" style="white-space:nowrap;">Apply</button>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:36px;">
+        <a href="cart.html" style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;">‹ Back to bag</a>
+        <a class="btn" href="checkout-payment.html">Continue to payment</a>
+      </div>
+
+      <div style="display:flex; gap:18px; margin-top: 28px; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted);">
+        <span>🔒 Secure checkout · Your data is always protected</span>
+      </div>
+      <div style="display:flex; gap:14px; margin-top: 14px; align-items:center;">
+        <span class="chip">Stripe Verified</span>
+        <span class="chip">256-bit SSL</span>
+        <span class="chip">30-day returns</span>
+      </div>
+    </div>
+
+    <!-- Order summary -->
+    <aside>
+      <div class="summary-card" style="position:sticky; top:88px;">
+        <h3>Order summary</h3>
+
+        <div style="display:flex; gap:14px; padding:12px 0; border-bottom:1px solid var(--line);">
+          <div class="pic" style="width:64px; height:80px; overflow:hidden; background:var(--sand);">
+            <img src="assets/img/luna-dress.png" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div style="flex:1;">
+            <p style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; margin:0 0 4px;">Luna Cutout Dress</p>
+            <p class="muted" style="font-size:12px; margin:0 0 6px;">Sand / M</p>
+            <p style="font-size:12px; margin:0;">Qty: 1 · <b>$190.00</b></p>
+          </div>
+        </div>
+        <div style="display:flex; gap:14px; padding:12px 0; border-bottom:1px solid var(--line);">
+          <div class="pic" style="width:64px; height:80px; overflow:hidden; background:var(--sand);">
+            <img src="assets/img/linen-pants.png" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div style="flex:1;">
+            <p style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; margin:0 0 4px;">Linen Wide Leg Pant</p>
+            <p class="muted" style="font-size:12px; margin:0 0 6px;">Oat / M</p>
+            <p style="font-size:12px; margin:0;">Qty: 1 · <b>$128.00</b></p>
+          </div>
+        </div>
+        <div style="display:flex; gap:14px; padding:12px 0; border-bottom:1px solid var(--line);">
+          <div class="pic" style="width:64px; height:80px; overflow:hidden; background:var(--sand);">
+            <img src="assets/img/gold-hoops.png" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div style="flex:1;">
+            <p style="font-size:12px; letter-spacing:.2em; text-transform:uppercase; margin:0 0 4px;">Gold Wave Hoops</p>
+            <p class="muted" style="font-size:12px; margin:0 0 6px;">Gold / OS</p>
+            <p style="font-size:12px; margin:0;">Qty: 1 · <b>$48.00</b></p>
+          </div>
+        </div>
+
+        <div class="summary-row" style="margin-top:14px;"><span>Subtotal (3 items)</span><span>$366.00</span></div>
+        <div class="summary-row"><span>Shipping</span><span style="color:var(--green)">FREE</span></div>
+        <div class="summary-row"><span>Sales tax</span><span class="muted">Calculated at next step</span></div>
+        <div class="summary-row total"><span>Estimated total</span><span>$366.00 USD</span></div>
+
+        <div style="display:flex; align-items:center; gap:12px; margin-top:18px; padding:14px; border:1px solid var(--line);">
+          <span style="font-size:18px;">🔒</span>
+          <div>
+            <div style="font-size:11px; letter-spacing:.22em; text-transform:uppercase;">Secure checkout</div>
+            <div class="muted" style="font-size:12px;">Your data is always protected</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<footer class="footer" style="padding:32px 0;">
+  <div class="container-wide footer-bottom" style="border:none; margin:0; padding:0;">
+    <span>© 2025 Solaire</span>
+    <div class="links"><span>Terms</span><span>Privacy</span><span>Cookies</span><span>Help</span></div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
