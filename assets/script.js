@@ -1,4 +1,4 @@
-// SOLAIRE — interactions, animations, mobile responsive
+// MAISON LUNE — interactions, animations, mobile responsive
 (function () {
   'use strict';
 
@@ -27,7 +27,7 @@
     clearTimeout(toast._t);
     toast._t = setTimeout(() => toastEl.classList.remove('show'), 2400);
   }
-  window.SOLAIRE_toast = toast;
+  window.MAISONLUNE_toast = toast;
 
   // ---------- Scrim ----------
   let scrim;
@@ -108,7 +108,7 @@
     const sov = ce('div', { class: 'search-overlay', role: 'dialog' });
     sov.innerHTML = `
       <div style="display:flex; justify-content:space-between; align-items:center; max-width:720px; margin:0 auto;">
-        <span style="font-family:'Cormorant Garamond',serif; font-size:18px; letter-spacing:.3em;">SOLAIRE</span>
+        <span style="font-family:'Cormorant Garamond',serif; font-size:18px; letter-spacing:.3em;">MAISON LUNE</span>
         <button class="close-search" aria-label="Close search">✕</button>
       </div>
       <form onsubmit="event.preventDefault();">
@@ -159,7 +159,7 @@
 
   // ---------- Newsletter modal ----------
   function buildNewsletter() {
-    if (sessionStorage.getItem('solaire_news_dismissed')) return;
+    if (sessionStorage.getItem('maisonlune_news_dismissed')) return;
     if ($('.modal-backdrop.news')) return;
     const m = ce('div', { class: 'modal-backdrop news' });
     m.innerHTML = `
@@ -181,7 +181,7 @@
     const close = () => {
       m.classList.remove('show');
       document.body.style.overflow = '';
-      sessionStorage.setItem('solaire_news_dismissed', '1');
+      sessionStorage.setItem('maisonlune_news_dismissed', '1');
     };
     m.querySelector('.close-modal').addEventListener('click', close);
     m.querySelector('.skip').addEventListener('click', close);
@@ -193,7 +193,7 @@
     });
     let triggered = false;
     const trigger = () => {
-      if (triggered || sessionStorage.getItem('solaire_news_dismissed')) return;
+      if (triggered || sessionStorage.getItem('maisonlune_news_dismissed')) return;
       triggered = true;
       m.classList.add('show');
       document.body.style.overflow = 'hidden';
@@ -747,7 +747,7 @@
       const para = $('.listing-hero .copy p');
       if (heading) heading.textContent = 'Search Results';
       if (para) para.textContent = `Showing products matching “${searchTerm}”. Refine with filters or browse related categories.`;
-      document.title = `Search: ${searchTerm} — SOLAIRE`;
+      document.title = `Search: ${searchTerm} — MAISON LUNE`;
       return;
     }
 
@@ -791,7 +791,7 @@
     const banner = $('.listing-hero img');
     if (heading && labels[cat]) {
       heading.textContent = labels[cat];
-      document.title = labels[cat] + ' — SOLAIRE';
+      document.title = labels[cat] + ' — MAISON LUNE';
     }
     if (para && copy[cat]) para.textContent = copy[cat];
     if (banner && banners[cat]) {
