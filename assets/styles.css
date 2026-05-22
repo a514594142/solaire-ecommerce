@@ -472,7 +472,8 @@ button { font-family: inherit; cursor: pointer; }
 }
 .thumb-rail .thumb.active { opacity: 1; outline: 1px solid var(--ink); outline-offset: 2px; }
 .thumb-rail .thumb img { width:100%; height:100%; object-fit: cover; }
-.pdp-main img { width: 100%; height: auto; aspect-ratio: 3/4; object-fit: cover; }
+.pdp-main { display: block; }
+.pdp-main img { display: block; width: 100%; height: auto; aspect-ratio: 3/4; object-fit: cover; margin: 0 auto; }
 
 .pdp-info h1 {
   font-family: 'Cormorant Garamond', serif;
@@ -1081,8 +1082,12 @@ button { font-family: inherit; cursor: pointer; }
   .hero { height: 620px; }
   .hero .copy h1 { font-size: 64px; }
   .hero .copy { left: 6%; max-width: 420px; }
-  .pdp { grid-template-columns: 70px 1fr; gap: 22px; }
-  .pdp-info { grid-column: 1 / span 2; max-width: 720px; }
+  .pdp { grid-template-columns: 1fr; gap: 22px; }
+  .pdp > * { min-width: 0; }
+  .pdp-info { max-width: 720px; }
+  .thumb-rail { flex-direction: row; overflow-x: auto; gap: 8px; padding-bottom: 6px; }
+  .thumb-rail .thumb { width: 72px; flex: 0 0 auto; }
+  .pdp-main img { aspect-ratio: 4/5; }
   .checkout { grid-template-columns: 1fr; gap: 32px; }
   .reviews { grid-template-columns: 1fr; gap: 28px; }
   .ugc-grid { grid-template-columns: repeat(3, 1fr); }
@@ -1126,9 +1131,11 @@ button { font-family: inherit; cursor: pointer; }
   .section { padding: 56px 0; }
   .section-title { font-size: 22px; letter-spacing: .26em; }
   .pdp { grid-template-columns: 1fr; }
+  .pdp > * { min-width: 0; }
   .thumb-rail { flex-direction: row; overflow-x: auto; gap: 8px; padding-bottom: 6px; }
   .thumb-rail .thumb { width: 72px; flex: 0 0 auto; }
-  .pdp-main img { aspect-ratio: 4/5; }
+  .pdp-main { width: 100%; }
+  .pdp-main img { aspect-ratio: 4/5; width: 100%; margin: 0 auto; }
   .reviews { grid-template-columns: 1fr; }
   .sticky-add { grid-template-columns: 48px 1fr; padding: 12px 18px; gap: 12px; }
   .sticky-add > div:last-child { grid-column: 1 / -1; }
@@ -1145,6 +1152,118 @@ button { font-family: inherit; cursor: pointer; }
   .express-pay { grid-template-columns: 1fr; }
   .modal { grid-template-columns: 1fr; }
 }
+/* ==== Cart page layout ==== */
+.cart-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 16px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.cart-title {
+  font-size: 36px; letter-spacing: .16em; text-transform: uppercase; margin: 0;
+}
+.cart-count {
+  font-family: 'Inter', system-ui, sans-serif; font-size: 18px; color: var(--muted);
+  letter-spacing: .12em;
+}
+.continue-shopping {
+  font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+  border-bottom: 1px solid var(--ink); padding-bottom: 2px;
+}
+.cart-grid {
+  display: grid; grid-template-columns: 1.6fr 1fr; gap: 56px;
+}
+
+@media (max-width: 1024px) {
+  .cart-grid { grid-template-columns: 1fr; gap: 32px; }
+  .cart-grid > aside { order: -1; }
+}
+
+/* ==== Mobile fine-tuning ==== */
+@media (max-width: 768px) {
+  /* Listing hero: hide long description on mobile, prevent overlap with model */
+  .listing-hero .copy { max-width: none; padding-right: 16px; margin-left: 22px; }
+  .listing-hero p.hero-desc,
+  .listing-hero .copy > p { display: none; }
+  .listing-hero h1 { font-size: 36px; letter-spacing: .04em; }
+  .listing-hero::before {
+    background: linear-gradient(90deg, rgba(74, 50, 33, .65) 0%, rgba(110, 74, 48, .35) 50%, rgba(0,0,0,0) 100%);
+  }
+
+  /* Recently-viewed: 2 cols on mobile */
+  .recently { grid-template-columns: repeat(2, 1fr); }
+
+  /* Capsule banner inside dresses footer area: stack to 1 column */
+  .capsule-card { grid-template-columns: 1fr !important; gap: 18px; padding: 22px !important; }
+  .capsule-card > div:last-child {
+    width: 100% !important;
+    height: 220px !important;
+    aspect-ratio: auto !important;
+    overflow: hidden;
+  }
+  .capsule-card > div:last-child img { width: 100% !important; height: 100% !important; object-fit: cover; display: block; }
+
+  /* Look-bundle "Add all to bag" button: prevent letter-spacing overflow */
+  .look-bundle .info .btn { padding: 12px 16px; letter-spacing: .18em; font-size: 10px; }
+  .look-bundle .info .btn:hover { letter-spacing: .2em; }
+
+  /* PDP sticky add-to-cart: stack cleanly */
+  .sticky-add { grid-template-columns: 48px 1fr; padding: 10px 14px; gap: 10px; }
+  .sticky-add > div:last-child {
+    grid-column: 1 / -1;
+    display: grid !important;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+  }
+  .sticky-add > div:last-child .btn { padding: 12px 16px; font-size: 10px; letter-spacing: .18em; }
+  .sticky-add .qty button { width: 32px; height: 32px; }
+  .sticky-add .qty input { width: 32px; }
+
+  /* Reviews header: stack title and CTA */
+  .pdp-reviews-head { flex-wrap: wrap; gap: 12px; }
+
+  /* Section-head on mobile: drop the empty spacer span and stack title + view-all */
+  .section-head { flex-wrap: wrap; gap: 8px; justify-content: space-between; }
+  .section-head > span:empty { display: none; }
+  .section-head .section-title { font-size: 18px; letter-spacing: .22em; }
+
+  /* Trust band rows */
+  .trust-band { padding: 22px 0; }
+  .trust-band .item { gap: 10px; }
+
+  /* Press logos smaller */
+  .press-logos { font-size: 14px; gap: 18px; }
+
+  /* Cart row tightening */
+  .cart-row { grid-template-columns: 88px 1fr; gap: 14px; padding: 22px 0; }
+  .cart-row .pic { width: 100%; }
+  .cart-row .size-grid button { width: 38px; height: 36px; font-size: 11px; }
+  .cart-row .color-row .swatch.lg { width: 22px; height: 22px; }
+  .cart-actions { flex-wrap: wrap; gap: 14px; }
+  .cart-row .qty button { width: 32px; height: 32px; }
+
+  /* Cart head: keep title and link on same line if space, else wrap */
+  .cart-title { font-size: 26px; letter-spacing: .14em; }
+  .cart-count { font-size: 14px; }
+
+  /* Express pay buttons keep readable */
+  .express-pay { grid-template-columns: 1fr; gap: 8px; }
+  .express-pay button { height: 44px; font-size: 12px; }
+
+  /* Subscribe band: stack cleanly with proper gap */
+  .subscribe-band .container { gap: 16px; }
+  .subscribe-band h3 { font-size: 16px; letter-spacing: .18em; }
+  .subscribe-band form input { padding: 12px 14px; font-size: 12px; }
+  .subscribe-band form button { padding: 0 18px; font-size: 10px; letter-spacing: .18em; }
+
+  /* Steps in checkout */
+  .steps { gap: 10px; padding: 18px 0 6px; flex-wrap: wrap; font-size: 10px; letter-spacing: .18em; }
+
+  /* PDP info: free shipping / returns chips wrap */
+  .pdp-info > div[style*="font-size:11px"] { flex-wrap: wrap; gap: 12px !important; }
+
+  /* Looks-to-love single column already done */
+  /* Container side padding on small mobile */
+}
+
 @media (max-width: 480px) {
   .container, .container-wide { padding: 0 16px; }
   .hero { height: 520px; }
@@ -1152,16 +1271,42 @@ button { font-family: inherit; cursor: pointer; }
   .hero .copy p { font-size: 13px; }
   .hero .actions { flex-direction: column; align-items: flex-start; }
   .listing-hero img { object-position: 62% 36%; }
-  .listing-hero h1 { font-size: 34px; }
   .section { padding: 44px 0; }
-  .section-title { font-size: 20px; }
   .product-card .meta { padding: 10px 0; }
   .product-card .name { font-size: 10px; }
   .footer-grid { grid-template-columns: 1fr; }
   .summary-card { padding: 22px; }
-  .pdp-info h1 { font-size: 22px; }
   .qty button { width: 32px; height: 32px; }
   .qty input { width: 36px; }
   .header-inner { height: 56px; }
   .checkout aside .summary-card { padding: 18px; }
+
+  /* Cart row stack pic + info to 1 column for very small screens */
+  .cart-row { grid-template-columns: 1fr; gap: 12px; }
+  .cart-row .pic { aspect-ratio: 4/5; max-width: 200px; }
+  .cart-row .size-grid { flex-wrap: wrap; }
+  .cart-row .qty { align-self: flex-start; }
+
+  /* Listing hero: smaller still */
+  .listing-hero h1 { font-size: 30px; }
+  .listing-hero { height: 220px; }
+
+  /* Section title smaller */
+  .section-title { font-size: 18px; letter-spacing: .22em; }
+
+  /* Press logos: 4 logos can wrap */
+  .press-logos { font-size: 13px; gap: 14px; flex-wrap: wrap; row-gap: 8px; }
+
+  /* PDP heading sizes */
+  .pdp-info h1 { font-size: 20px; letter-spacing: .14em; }
+
+  /* Footer brand serif smaller */
+  .footer .brand-tag .serif { font-size: 18px; letter-spacing: .3em; }
+
+  /* Footer-bottom stack: vertical with spacing */
+  .footer-bottom { gap: 14px; padding-top: 18px; }
+  .footer-bottom .links { flex-wrap: wrap; gap: 14px; }
+
+  /* Stepper for checkout */
+  .steps { gap: 6px; font-size: 9px; letter-spacing: .14em; }
 }
